@@ -12,7 +12,7 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-    game.frameUpdate()
+    game.update()
 
     # Update Display
     pygame.display.flip()

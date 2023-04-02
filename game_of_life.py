@@ -14,7 +14,16 @@ class GameOfLife:
 
         self.game_map = [[0 for column in range(self.width)] for row in range(self.height)]
     
-    def frameUpdate(self):
+    def update(self):
+        self.game_map[random.randint(0, 9)][random.randint(0, 9)] = 1
+        self.gameDraw()
+    
+    def gameDraw(self):
         for row in range(self.height):
             for column in range(self.width):
-                pygame.draw.rect(self.window, (0, 0, 100), (row * 16, column * 16, 16, 16))
+                if self.game_map[row][column] == 1:
+                    color = (250, 250, 0)
+                else:
+                    color = (200, 200, 200)
+                
+                pygame.draw.rect(self.window, color, (row * 16, column * 16, 16, 16))
