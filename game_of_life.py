@@ -15,7 +15,7 @@ class GameOfLife:
         self.game_map = [[0 for column in range(self.width)] for row in range(self.height)]
     
     def update(self, paused):
-        self.gameDraw()
+        self.gameDraw(paused)
         if not paused:
             self.cellCycle()
     
@@ -68,12 +68,17 @@ class GameOfLife:
         y = int(mouse_pos[1] / 16)
         self.game_map[x][y] = not self.game_map[x][y]
 
-    def gameDraw(self):
+    def gameDraw(self, paused):
         for row in range(self.height):
             for column in range(self.width):
                 if self.game_map[row][column] == 1:
                     color = (250, 250, 0)
+                elif paused:
+                    color = (200, 100, 100)
                 else:
                     color = (200, 200, 200)
                 
                 pygame.draw.rect(self.window, color, (row * 16, column * 16, 16, 16))
+
+    def reset(self):
+        self.game_map = [[0 for column in range(self.width)] for row in range(self.height)]
