@@ -31,8 +31,6 @@ class GameOfLife:
                 surrounding_cells = self.checkCell(row, column)
                 cell_state = self.game_map[row][column]
 
-                #Debug Print Statement
-                print ("(", str(row), str(column), ") - State:", str(cell_state), "Surrounding Cells:", str(surrounding_cells))
                 if (cell_state == 0) and (surrounding_cells == 3):
                     temp_map[row][column] = 1
                 elif (cell_state == 1) and (surrounding_cells <= 1):
@@ -67,7 +65,6 @@ class GameOfLife:
             for column in range(cell_column - side_left, cell_column + side_right + 1):
                 if (row != cell_row) or (column != cell_column):
                     surrounding_cells += self.game_map[row][column]
-        print (str(surrounding_cells))
         return surrounding_cells
     
 

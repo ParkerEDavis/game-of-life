@@ -1,9 +1,9 @@
 from game_of_life import *
 
 clock = pygame.time.Clock()
-FPS = 1
+FPS = 2
 
-game = GameOfLife(9, 9)
+game = GameOfLife(20, 20)
 
 
 running = True
