@@ -13,15 +13,11 @@ class GameOfLife:
         pygame.display.set_caption("Game of Life")
 
         self.game_map = [[0 for column in range(self.width)] for row in range(self.height)]
-        self.game_map[1][0] = 1
-        self.game_map[2][1] = 1
-        self.game_map[0][2] = 1
-        self.game_map[1][2] = 1
-        self.game_map[2][2] = 1
     
-    def update(self):
+    def update(self, paused):
         self.gameDraw()
-        self.cellCycle()
+        if not paused:
+            self.cellCycle()
     
 
     def cellCycle(self):
@@ -67,6 +63,10 @@ class GameOfLife:
                     surrounding_cells += self.game_map[row][column]
         return surrounding_cells
     
+    def clicked(self, mouse_pos):
+        x = int(mouse_pos[0] / 16)
+        y = int(mouse_pos[1] / 16)
+        self.game_map[x][y] = not self.game_map[x][y]
 
     def gameDraw(self):
         for row in range(self.height):
