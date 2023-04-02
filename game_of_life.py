@@ -1,5 +1,4 @@
 import pygame
-import random
 import copy
 
 class GameOfLife:
@@ -22,7 +21,6 @@ class GameOfLife:
     
     def update(self):
         self.gameDraw()
-        #self.checkCell(8, 8)
         self.cellCycle()
     
 
@@ -33,8 +31,6 @@ class GameOfLife:
                 surrounding_cells = self.checkCell(row, column)
                 cell_state = self.game_map[row][column]
 
-                #Debug Print Statement
-                print ("(", str(row), str(column), ") - State:", str(cell_state), "Surrounding Cells:", str(surrounding_cells))
                 if (cell_state == 0) and (surrounding_cells == 3):
                     temp_map[row][column] = 1
                 elif (cell_state == 1) and (surrounding_cells <= 1):
@@ -68,15 +64,8 @@ class GameOfLife:
         for row in range(cell_row - side_top, cell_row + side_bottom + 1):
             for column in range(cell_column - side_left, cell_column + side_right + 1):
                 if (row != cell_row) or (column != cell_column):
-                    #print (str(row), str(column), self.game_map[row][column])
                     surrounding_cells += self.game_map[row][column]
-        #print (str(side_top), str(side_bottom), str(side_left), str(side_right))
-        #print (str(cell_row - side_top), str(cell_row + side_bottom), str(cell_column - side_left), str(cell_column + side_right))
-        print (str(surrounding_cells))
         return surrounding_cells
-
-
-
     
 
     def gameDraw(self):

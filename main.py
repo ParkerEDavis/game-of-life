@@ -1,10 +1,9 @@
 from game_of_life import *
-import time
 
 clock = pygame.time.Clock()
-FPS = 1
+FPS = 2
 
-game = GameOfLife(9, 9)
+game = GameOfLife(20, 20)
 
 
 running = True
@@ -14,7 +13,6 @@ while running:
             running = False
     
     game.update()
-    #running = False
 
     # Update Display
     pygame.display.flip()
