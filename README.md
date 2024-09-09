@@ -1,3 +1,5 @@
-Making Conway's Game of Life in python using pygame
+Made Conway's Game of Life in python using pygame
 
-Not really sure what to put here :P
+Controls:
+'Space' - Turn on/off simulation.
+'R' - Reset board
